@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -81,7 +81,7 @@ namespace Plugin.LatestVersion
             try
             {
                 var http = new HttpClient();
-                var response = await http.GetAsync($"http://itunes.apple.com/lookup?bundleId={_bundleIdentifier}");
+                var response = await http.GetAsync($"http://itunes.apple.com/lookup?bundleId={_bundleIdentifier}&country=nz");
                 var content = response.Content == null ? null : await response.Content.ReadAsStringAsync();
                 var appLookup = JsonValue.Parse(content);
 
